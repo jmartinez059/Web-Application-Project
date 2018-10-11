@@ -2,14 +2,21 @@ package com.revature.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import com.revature.beans.User;
+import com.revature.util.SessionUtil;
 
 public class UserDAO implements DAO<User> {
 
+	private Session sess;
+	
+	public UserDAO() {
+		sess = SessionUtil.getSession();
+	}
+	
 	@Override
 	public User getById(String tId) {
-		// TODO Auto-generated method stub
-		return null;
+		return sess.get(User.class, tId);
 	}
 
 	@Override
@@ -34,6 +41,11 @@ public class UserDAO implements DAO<User> {
 	public void delete(User t) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setSess(Session sess) {
+		this.sess = sess;
 	}
 
 }

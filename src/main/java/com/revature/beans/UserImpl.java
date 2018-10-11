@@ -1,5 +1,8 @@
 package com.revature.beans;
 
+import javax.persistence.Table;
+
+@Table(name="USER_CREDENTIALS")
 public class UserImpl implements User {
 
 	private int id;

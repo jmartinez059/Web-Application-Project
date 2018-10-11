@@ -2,6 +2,8 @@ package com.revature.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
 public interface DAO<T> {
 
 	/**
@@ -19,4 +21,6 @@ public interface DAO<T> {
 	public void update(T t);
 	
 	public void delete(T t);
+	
+	public void setSess(Session sess);
 }
