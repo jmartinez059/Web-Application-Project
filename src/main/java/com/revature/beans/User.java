@@ -30,9 +30,9 @@ public interface User {
 
 	public void setCc_info(String cc_info);
 
-	public double getChargeAmount();
+	public Double getChargeAmount();
 
-	public void setChargeAmount(double chargeAmount) ;
+	public void setChargeAmount(Double chargeAmount) ;
 
 	public boolean isExperienced();
 	

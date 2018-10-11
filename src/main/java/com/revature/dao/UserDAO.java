@@ -12,11 +12,16 @@ public class UserDAO implements DAO<User> {
 	
 	public UserDAO() {
 		sess = SessionUtil.getSession();
+		System.out.println(sess);
 	}
 	
 	@Override
 	public User getById(String tId) {
-		return sess.get(User.class, tId);
+		System.out.println("tid = " + tId);
+		User u = sess.get(User.class, tId);
+		System.out.println(u);
+		return u;
+		
 	}
 
 	@Override

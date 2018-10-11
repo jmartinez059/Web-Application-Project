@@ -16,11 +16,11 @@ public class SessionUtil {
 				new StandardServiceRegistryBuilder().configure(
 						"hibernate.cfg.xml");
 		ssrb.applySetting("hibernate.connection.url",				
-				System.getenv("wabEndPoint"));
+				"jdbc:postgresql://rev4pillars.cy8igsvx5lhu.us-east-2.rds.amazonaws.com:5432/rev4PillarsDB?");
 		ssrb.applySetting("hibernate.connection.username", 
-				System.getenv("wabUname"));
+				"marti656");
 		ssrb.applySetting("hibernate.connection.password", 
-				System.getenv("wabPword"));
+				"");
 		StandardServiceRegistry stanReg = ssrb.build();
 		Metadata meta =
 				new MetadataSources(stanReg).getMetadataBuilder().build();
