@@ -18,9 +18,9 @@ public class SessionUtil {
 		ssrb.applySetting("hibernate.connection.url",				
 				"jdbc:postgresql://rev4pillars.cy8igsvx5lhu.us-east-2.rds.amazonaws.com:5432/rev4PillarsDB?");
 		ssrb.applySetting("hibernate.connection.username", 
-				"marti656");
+				"");
 		ssrb.applySetting("hibernate.connection.password", 
-				"WAB5thPillar");
+				"");
 		StandardServiceRegistry stanReg = ssrb.build();
 		Metadata meta =
 				new MetadataSources(stanReg).getMetadataBuilder().build();
