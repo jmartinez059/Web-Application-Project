@@ -22,17 +22,17 @@ public interface User {
 
 	public void setEmail(String email);
 
-	public String getPassword();
+	public String getPWord();
 
-	public void setPassword(String password);
+	public void setPWord(String pWord);
 
-	public String getCc_info();
+	//public String getCc_info();
 
-	public void setCc_info(String cc_info);
+	//public void setCc_info(String cc_info);
 
-	public Double getChargeAmount();
+	//public Double getChargeAmount();
 
-	public void setChargeAmount(Double chargeAmount) ;
+	//public void setChargeAmount(Double chargeAmount) ;
 
 	public boolean isExperienced();
 	

@@ -3,6 +3,7 @@ package com.revature.dao;
 import static org.junit.Assert.fail;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -44,9 +45,9 @@ public class UserDAOTest {
 		User user = new UserImpl();
 		String username = "Frank";
 		user.setuName(username);
-		user.setPassword("1234");
+		user.setPWord("1234");
 		user.setId(1);
-		Mockito.when(sess.get(User.class, username)).thenReturn(user);
+		Mockito.when(sess.createCriteria(UserImpl.class).add(Restrictions.eq("uName", username)).list().get(0)).thenReturn(user);
 		Assert.assertEquals("Testing getting by id: ", user, userDAO.getById(username));
 	}
 

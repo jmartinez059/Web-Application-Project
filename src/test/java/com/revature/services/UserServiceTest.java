@@ -46,9 +46,9 @@ public class UserServiceTest {
 		User u = new UserImpl();
 		User u2 = new UserImpl();
 		u.setuName("Gunter");		
-		u.setPassword("1234");
+		u.setPWord("1234");
 		u2.setuName("Gunter");		
-		u2.setPassword("1234");
+		u2.setPWord("1234");
 		u.setId(1);
 		Mockito.when(userDAO.getById("Gunter")).thenReturn(u);
 		User use = userservice.login(u2);

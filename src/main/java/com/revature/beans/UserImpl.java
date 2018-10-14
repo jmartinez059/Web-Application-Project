@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;
 import javax.persistence.Table;
@@ -12,9 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="users")
 @SecondaryTables({
-	@SecondaryTable(name="user_credentials"),
-	@SecondaryTable(name="user_pay_info"),
-	@SecondaryTable(name="curr_charges")
+	@SecondaryTable(name="user_credentials", pkJoinColumns= {
+			@PrimaryKeyJoinColumn(name="uc_id", referencedColumnName="u_id")}
+	)
+	//@SecondaryTable(name="user_pay_info"),
+	//@SecondaryTable(name="curr_charges")
 })
 public class UserImpl implements User {
 
@@ -36,13 +39,13 @@ public class UserImpl implements User {
 	private String email;
 
 	@Column(table="user_credentials", name="p_word")
-	private String password;
+	private String pWord;
 
 	/*@Column(table="user_payi_info", name="u_id")*/
-	private String cc_info;
+	//private String cc_info;
 	
 	/*@Column(table="curr_charges", name="total_amount")*/
-	private Double chargeAmount;
+	//private Double chargeAmount;
 	
 
 	@Column(table="users", name="experienced")
@@ -96,14 +99,14 @@ public class UserImpl implements User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPWord() {
+		return pWord;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPWord(String pWord) {
+		this.pWord = pWord;
 	}
-
+/*
 	public String getCc_info() {
 		return cc_info;
 	}
@@ -119,12 +122,12 @@ public class UserImpl implements User {
 	public void setChargeAmount(Double chargeAmount) {
 		this.chargeAmount = chargeAmount;
 	}
-
+*/
 	@Override
 	public String toString() {
 		return "UserImpl [id=" + id + ", uName=" + uName + ", fName=" + fName + ", lName=" + lName + ", email=" + email
-				+ ", password=" + password + ", cc_info=" + cc_info + ", chargeAmount=" + chargeAmount
-				+ ", experienced=" + experienced + "]";
+				+ ", password=" + pWord +  "experienced=" + experienced + "]";/*", cc_info=" ++ cc_info + ", chargeAmount=" + chargeAmount
+				+ ",*/ 
 	}
 
 	public boolean isExperienced() {

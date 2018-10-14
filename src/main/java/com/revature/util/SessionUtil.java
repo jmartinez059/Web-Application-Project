@@ -20,7 +20,7 @@ public class SessionUtil {
 		ssrb.applySetting("hibernate.connection.username", 
 				"marti656");
 		ssrb.applySetting("hibernate.connection.password", 
-				"");
+				"WAB5thPillar");
 		StandardServiceRegistry stanReg = ssrb.build();
 		Metadata meta =
 				new MetadataSources(stanReg).getMetadataBuilder().build();

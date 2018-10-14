@@ -3,7 +3,10 @@ package com.revature.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
 import com.revature.beans.User;
+import com.revature.beans.UserImpl;
 import com.revature.util.SessionUtil;
 
 public class UserDAO implements DAO<User> {
@@ -16,16 +19,15 @@ public class UserDAO implements DAO<User> {
 	}
 	
 	@Override
-	public User getById(String tId) {
-		System.out.println("tid = " + tId);
-		User u = sess.get(User.class, tId);
-		System.out.println(u);
-		return u;
-		
+	public User getById(String uId) {
+		//System.out.println(sess.get(UserImpl.class, uId));
+		//User u = sess.get(UserImpl.class, uId);
+		User u = (User)sess.createCriteria(UserImpl.class).add(Restrictions.eq("uName", uId)).list().get(0);
+		return u;		
 	}
 
 	@Override
-	public void create(User t) {
+	public void create(User u) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -37,13 +39,13 @@ public class UserDAO implements DAO<User> {
 	}
 
 	@Override
-	public void update(User t) {
+	public void update(User u) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(User t) {
+	public void delete(User u) {
 		// TODO Auto-generated method stub
 		
 	}

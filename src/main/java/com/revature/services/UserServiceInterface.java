@@ -8,4 +8,6 @@ public interface UserServiceInterface {
 	public User login(User user);
 	
 	public void setUserDAO(DAO<User> userDAO);
+	
+	public boolean add(User user);
 }
